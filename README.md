@@ -36,6 +36,12 @@ Actualmente, el proyecto no requiere credenciales de acceso específicas, ya que
 2. Utiliza la interfaz gráfica para interactuar con las funcionalidades disponibles.
 3. Sigue las instrucciones y mensajes en pantalla para operar correctamente las opciones del programa.
 
+## Estructura del Proyecto
+- `App.xaml` / `App.xaml.cs`: Archivos de configuración y lógica inicial de la aplicación.
+- `MainWindow.xaml` / `MainWindow.xaml.cs`: Ventana principal de la aplicación con la interfaz gráfica y su correspondiente lógica.
+- `Assets` (**Logo.png**, **Padlock.png**, **etc**.): Recursos visuales utilizados dentro de la aplicación.
+- `AssemblyInfo.cs`: Información de ensamblado del proyecto.
+
 ## Estado del Proyecto
 **Estado Actual:** `Finalizado.`
 > [!Note]
@@ -56,8 +62,3 @@ Actualmente, el proyecto no requiere credenciales de acceso específicas, ya que
 
 ## Licencia
 Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
-## Estructura del Proyecto
-- `App.xaml` / `App.xaml.cs`: Archivos de configuración y lógica inicial de la aplicación.
-- `MainWindow.xaml` / `MainWindow.xaml.cs`: Ventana principal de la aplicación con la interfaz gráfica y su correspondiente lógica.
-- `Assets` (**Logo.png**, **Padlock.png**, **etc**.): Recursos visuales utilizados dentro de la aplicación.
-- `AssemblyInfo.cs`: Información de ensamblado del proyecto.
