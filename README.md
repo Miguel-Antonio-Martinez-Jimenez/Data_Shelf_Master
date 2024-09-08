@@ -69,14 +69,14 @@ Para que la conexión funcione correctamente, es esencial que ajustes los parám
 - `App.xaml` / `App.xaml.cs`: Archivos de configuración y lógica inicial de la aplicación.
 - `AssemblyInfo.cs`: Información de ensamblado del proyecto.
 - `MainWindow.xaml` / `MainWindow.xaml.cs`: Ventana principal de la aplicación con la interfaz gráfica y su correspondiente lógica.
-- `Entities`: Esta carpeta generalmente contiene las clases que representan las entidades del modelo de datos.
-- `Icon`: Recursos visuales utilizados dentro de la aplicación.
-- `Migrations`: Esta carpeta almacena los archivos de migraciones que son generados por Entity Framework o cualquier otro sistema de migración de bases de datos.
-- `Services`: La carpeta contiene las clases que implementan la lógica de negocio de la aplicación.
-- `ViewWindows`: Esta carpeta contiene las ventanas o vistas de la aplicación, generalmente en aplicaciones de escritorio o proyectos que utilizan interfaces gráficas (como WinForms o WPF en C#). 
+- `Entities/`: Esta carpeta generalmente contiene las clases que representan las entidades del modelo de datos.
+- `Icon/`: Recursos visuales utilizados dentro de la aplicación.
+- `Migrations/`: Esta carpeta almacena los archivos de migraciones que son generados por Entity Framework o cualquier otro sistema de migración de bases de datos.
+- `Services/`: La carpeta contiene las clases que implementan la lógica de negocio de la aplicación.
+- `ViewWindows/`: Esta carpeta contiene las ventanas o vistas de la aplicación, generalmente en aplicaciones de escritorio o proyectos que utilizan interfaces gráficas (como WinForms o WPF en C#). 
 
   ```bash
-   Data_Shelf_Master
+   Data_Shelf_Master/
    ├── .gitattributes
    ├── .gitignore
    ├── App.xaml
@@ -88,16 +88,16 @@ Para que la conexión funcione correctamente, es esencial que ajustes los parám
    ├── MainWindow.xaml.cs
    ├── Padlock.png
    ├── User.png
-   ├── Context
+   ├── Context/
    │   └── ApplicationDBContext.cs
-   ├── Entities
+   ├── Entities/
    │   ├── Book.cs
    │   ├── Personnel.cs
    │   ├── Role.cs
    │   ├── Solicitude.cs
    │   ├── Student.cs
    │   └── ValidateRole.cs
-   ├── Icon
+   ├── Icon/
    │   ├── Delete.png
    │   ├── Edit.png
    │   ├── Headuser.png
@@ -107,44 +107,46 @@ Para que la conexión funcione correctamente, es esencial que ajustes los parám
    │   ├── Search.png
    │   ├── User.png
    │   └── UserLogo.png
-   ├── Migrations
+   ├── Migrations/
    │   ├── 20230726194836_Tables.Designer.cs
    │   ├── 20230726194836_Tables.cs
    │   └── ApplicationDBContextModelSnapshot.cs
-   ├── Services
+   ├── Services/
    │   ├── BookService.cs
    │   ├── PersonnelService.cs
    │   └── StudentService.cs
-   └── ViewWindows
-       ├── AddBooks.xaml
-       ├── AddBooks.xaml.cs
-       ├── AddSolicitudes.xaml
-       ├── AddSolicitudes.xaml.cs
-       ├── AddStudent.xaml
-       ├── AddStudent.xaml.cs
-       ├── AddUsers.xaml
-       ├── AddUsers.xaml.cs
-       ├── CreateAccount.xaml
-       ├── CreateAccount.xaml.cs
-       ├── DataShelfMasterSistem.xaml
-       ├── DataShelfMasterSistem.xaml.cs
-       ├── Delete.png
-       ├── Edit.png
-       ├── EditBooks.xaml
-       ├── EditBooks.xaml.cs
-       ├── EditSolicitudes.xaml
-       ├── EditSolicitudes.xaml.cs
-       ├── EditStudents.xaml
-       ├── EditStudents.xaml.cs
-       ├── EditUsers.xaml
-       ├── EditUsers.xaml.cs
-       ├── Headuser.png
-       ├── Icon-Logo.png
-       ├── Logo.png
-       ├── Padlock.png
-       ├── User.png
-       └── UserLogo.png
-
+   ├──ViewWindows/
+   │   ├── AddBooks.xaml
+   │   ├── AddBooks.xaml.cs
+   │   ├── AddSolicitudes.xaml
+   │   ├── AddSolicitudes.xaml.cs
+   │   ├── AddStudent.xaml
+   │   ├── AddStudent.xaml.cs
+   │   ├── AddUsers.xaml
+   │   ├── AddUsers.xaml.cs
+   │   ├── CreateAccount.xaml
+   │   ├── CreateAccount.xaml.cs
+   │   ├── DataShelfMasterSistem.xaml
+   │   ├── DataShelfMasterSistem.xaml.cs
+   │   ├── Delete.png
+   │   ├── Edit.png
+   │   ├── EditBooks.xaml
+   │   ├── EditBooks.xaml.cs
+   │   ├── EditSolicitudes.xaml
+   │   ├── EditSolicitudes.xaml.cs
+   │   ├── EditStudents.xaml
+   │   ├── EditStudents.xaml.cs
+   │   ├── EditUsers.xaml
+   │   ├── EditUsers.xaml.cs
+   │   ├── Headuser.png
+   │   ├── Icon-Logo.png
+   │   ├── Logo.png
+   │   ├── Padlock.png
+   │   ├── User.png
+   │   └── UserLogo.png
+   ├── LICENSE
+   └── README.md
+  
 ## Estado del Proyecto
 **Estado Actual:** `Finalizado.`
 > [!Note]
