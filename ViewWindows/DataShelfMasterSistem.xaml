@@ -1,0 +1,560 @@
+﻿<Window x:Class="DataShelfMaster.ViewWindows.DataShelfMasterSistem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataShelfMaster.ViewWindows"
+        mc:Ignorable="d"
+        Title="DataShelfMasterSistem" Height="630" Width="850"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <!--Style INICIO-->
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="LabelRadius">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Label">
+                        <Border Background="White"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="0"
+                                CornerRadius="9,0,0,9" 
+                                Margin="-14,0,0,0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="BtnRadius">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="#FF634ACE"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="0"
+                                CornerRadius="0,9,9,0" 
+                                Margin="-14,0,0,0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="BtnRadiusa">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="#FF634ACE"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="0"
+                                CornerRadius="6,6,6,6" 
+                                Margin="-14,0,0,0" Width="160" Height="30">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TabItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border Name="border" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter ContentSource="Header" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF634ACE" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <!--Style FIN-->
+    <Grid Background="#FFEFF3F6">
+        <Label x:Name="LbName" Content="USERNAME" HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="800" VerticalContentAlignment="Center" FontFamily="Candara" FontSize="18" Background="#FF634ACE"/>
+        <Label Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Background="#FF634ACE"/>
+        <Button Content="" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" BorderThickness="0" Margin="13,12,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="/ViewWindows/UserLogo.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnLogOut" Content="Log Out" HorizontalAlignment="Left" Height="30" Margin="727,8,0,0" VerticalAlignment="Top" Width="100" Background="#FF634ACE" BorderBrush="{x:Null}" Foreground="Red" FontFamily="Cambria" FontSize="15" Click="BtnLogOut_Click"/>
+        <Image HorizontalAlignment="Center" Height="260" Margin="0,200,0,0" VerticalAlignment="Top" Width="260" Source="/ViewWindows/Icon-Logo.png" Opacity="0.3"/>
+        <TabControl Width="780" Height="500" Background="Transparent" Margin="35,85,35,29" BorderThickness="0,1,0,0">
+            <TabItem Header="  Solicitudes" 
+                     Width="110" Height="33"
+                     Background="{x:Null}" 
+                     FontFamily="Gadugi" FontSize="15" 
+                     BorderBrush="Transparent" BorderThickness="0,0,0,3"
+                     HorizontalContentAlignment="Center" Margin="-2,0,2,0">
+                <Grid Width="780" Height="450">
+                    <DataGrid x:Name="SolicitudesTable"
+                      SelectionMode="Extended" Margin="20,73,20,26" 
+                      Background="Transparent" 
+                      BorderBrush="#eff3f6" 
+                      AutoGenerateColumns="false" 
+                      CanUserAddRows="false" 
+                      IsReadOnly="True" 
+                      ColumnWidth="*" 
+                      BorderThickness="1,1,1,1" 
+                      GridLinesVisibility="Horizontal" 
+                      VerticalGridLinesBrush="{x:Null}" 
+                      HorizontalGridLinesBrush="#FFEFF3F6" 
+                      VerticalContentAlignment="Center"
+                      HeadersVisibility="Column"
+                      HorizontalScrollBarVisibility="Disabled">
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#613dd0"/>
+                                <Setter Property="Height" Value="25"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                <Setter Property="Foreground" Value="black"/>
+                                <Setter Property="FontFamily" Value="Bahnschrift Light" />
+                                <Setter Property="FontSize" Value="14" />
+                            </Style>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="#FFF9F9F9" />
+                                <Setter Property="Height" Value="25" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter Property="FontFamily" Value="Bahnschrift" />
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="BorderBrush" Value="#FFF9F9F9"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#FF9553EF" />
+                                        <Setter Property="BorderBrush" Value="#FF9553EF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style x:Key="BtnEdits" TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                                <Image Source="Edit.png"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                            <Style x:Key="BtnDeletes" TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                                <Image Source="Delete.png"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="BorderThickness" Value="2"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="IsSelected" Value="True" />
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="False">
+                                        <Setter Property="IsSelected" Value="False" />
+                                        <Setter Property="Background" Value="Transparent" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header=" Matric" Binding="{Binding FkMatric}" Width="65" FontFamily="Calibri Light"/>
+                            <DataGridTextColumn Header=" Name"  Binding="{Binding Students.Name}" Width="65" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Last Name"  Binding="{Binding Students.LastName}" Width="75" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Book"  Binding="{Binding Books.Title}" Width="75" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Date Solicitude"  Binding="{Binding DateSolicitude}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Observation"  Binding="{Binding Observation}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Status" Binding="{Binding Status}" Width="60"/>
+                            <DataGridTextColumn Header=" Date Devolution" Binding="{Binding DateDevolution}" Width="*"/>
+
+                            <DataGridTemplateColumn Header="Operations" Width="100" x:Name="OptionsSolicitude">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Style="{StaticResource BtnEdits}" Width="40" Click="BtnEditSolicitude_Click"/>
+                                            <Button Style="{StaticResource BtnDeletes}" Width="40" Click="BtnDeletetSolicitude_Click"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Edit" x:Name="OptionsSolicitudes" Width="40">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Style="{StaticResource BtnEdits}" Width="40" Click="BtnEditSolicitude_Click"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="" HorizontalAlignment="Left" Style="{StaticResource LabelRadius}" Height="30" Margin="40,23,0,0" VerticalAlignment="Top" Width="160" Background="White"/>
+                    <Button x:Name="BtnSearchSolicitudes" Content="Search" HorizontalAlignment="Left" Style="{StaticResource BtnRadius}" Margin="200,23,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="BtnSearchSolicitudes_Click"/>
+                    <TextBox x:Name="TxtSolicitudes" HorizontalAlignment="Left" Margin="37,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0"/>
+                    <Button x:Name="BtnAddSolicitudes" Content="   Add Solicitudes" HorizontalAlignment="Left" Style="{StaticResource BtnRadiusa}" Margin="598,23,0,0" VerticalAlignment="Top" Height="30" Width="160" FontSize="12" FontFamily="Consolas" BorderBrush="{x:Null}" Click="BtnAddSolicitudes_Click"/>
+                    <Label Content="+" HorizontalAlignment="Left" Margin="598,23,0,0" VerticalAlignment="Top" Width="26" Height="30" FontFamily="Cambria Math" FontSize="18"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="  Books" 
+                     Width="110" Height="33"
+                     Background="{x:Null}" 
+                     FontFamily="Gadugi" FontSize="15" 
+                     BorderBrush="Transparent" BorderThickness="0,0,0,3"
+                     HorizontalContentAlignment="Center" Margin="-2,0,2,0">
+                <Grid Width="780" Height="450">
+                    <DataGrid x:Name="BooksTable"
+                      SelectionMode="Extended" Margin="20,73,20,26" 
+                      Background="Transparent" 
+                      BorderBrush="#eff3f6" 
+                      AutoGenerateColumns="false" 
+                      CanUserAddRows="false" 
+                      IsReadOnly="True" 
+                      ColumnWidth="*" 
+                      BorderThickness="1,1,1,1" 
+                      GridLinesVisibility="Horizontal" 
+                      VerticalGridLinesBrush="{x:Null}" 
+                      HorizontalGridLinesBrush="#FFEFF3F6" 
+                      VerticalContentAlignment="Center"
+                      HeadersVisibility="Column"
+                      HorizontalScrollBarVisibility="Disabled">
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#613dd0"/>
+                                <Setter Property="Height" Value="25"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                <Setter Property="Foreground" Value="black"/>
+                                <Setter Property="FontFamily" Value="Bahnschrift Light" />
+                                <Setter Property="FontSize" Value="14" />
+                            </Style>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="#FFF9F9F9" />
+                                <Setter Property="Height" Value="25" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter Property="FontFamily" Value="Bahnschrift" />
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="BorderBrush" Value="#FFF9F9F9"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#FF9553EF" />
+                                        <Setter Property="BorderBrush" Value="#FF9553EF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style x:Key="BtnEdits" TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                                <Image Source="Edit.png"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                            <Style x:Key="BtnDeletes" TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                                <Image Source="Delete.png"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="BorderThickness" Value="2"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="IsSelected" Value="True" />
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="False">
+                                        <Setter Property="IsSelected" Value="False" />
+                                        <Setter Property="Background" Value="Transparent" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header=" ISBN" Binding="{Binding ISBN}" Width="150" FontFamily="Calibri Light"/>
+                            <DataGridTextColumn Header=" Title"  Binding="{Binding Title}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Author"  Binding="{Binding Author}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Edition"  Binding="{Binding Edition}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Status"  Binding="{Binding Status}" Width="*" FontFamily="Gadugi"/>
+
+                            <DataGridTemplateColumn Header="Operations" Width="100" x:Name="OptionsBook">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Style="{StaticResource BtnEdits}" Width="40" Click="BtnEditBook_Click"/>
+                                            <Button Style="{StaticResource BtnDeletes}" Width="40" Click="BtnDeleteBook_Click"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="" HorizontalAlignment="Left" Style="{StaticResource LabelRadius}" Height="30" Margin="40,23,0,0" VerticalAlignment="Top" Width="160" Background="White"/>
+                    <Button x:Name="BtnSearchBooks" Content="Search" HorizontalAlignment="Left" Style="{StaticResource BtnRadius}" Margin="200,23,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="BtnSearchBooks_Click"/>
+                    <TextBox x:Name="TxtBooks" HorizontalAlignment="Left" Margin="37,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0"/>
+                    <Button x:Name="BtnAddBooks" Content="   Add Books" HorizontalAlignment="Left" Style="{StaticResource BtnRadiusa}" Margin="598,23,0,0" VerticalAlignment="Top" Height="30" Width="160" FontSize="12" FontFamily="Consolas" BorderBrush="{x:Null}" Click="BtnAddBooks_Click"/>
+                    <Label x:Name="LblMas1" Content="+" HorizontalAlignment="Left" Margin="598,23,0,0" VerticalAlignment="Top" Width="26" Height="30" FontFamily="Cambria Math" FontSize="18"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="  Students" 
+                     Width="110" Height="33"
+                     Background="{x:Null}" 
+                     FontFamily="Gadugi" FontSize="15" 
+                     BorderBrush="Transparent" BorderThickness="0,0,0,3"
+                     HorizontalContentAlignment="Center" Margin="-2,0,2,0">
+                <Grid Width="780" Height="450">
+                    <DataGrid x:Name="StudentsTable"
+                      SelectionMode="Extended" Margin="20,73,20,26" 
+                      Background="Transparent" 
+                      BorderBrush="#eff3f6" 
+                      AutoGenerateColumns="false" 
+                      CanUserAddRows="false" 
+                      IsReadOnly="True" 
+                      ColumnWidth="*" 
+                      BorderThickness="1,1,1,1" 
+                      GridLinesVisibility="Horizontal" 
+                      VerticalGridLinesBrush="{x:Null}" 
+                      HorizontalGridLinesBrush="#FFEFF3F6" 
+                      VerticalContentAlignment="Center"
+                      HeadersVisibility="Column"
+                      HorizontalScrollBarVisibility="Disabled">
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#613dd0"/>
+                                <Setter Property="Height" Value="25"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                <Setter Property="Foreground" Value="black"/>
+                                <Setter Property="FontFamily" Value="Bahnschrift Light" />
+                                <Setter Property="FontSize" Value="14" />
+                            </Style>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="#FFF9F9F9" />
+                                <Setter Property="Height" Value="25" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter Property="FontFamily" Value="Bahnschrift" />
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="BorderBrush" Value="#FFF9F9F9"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#FF9553EF" />
+                                        <Setter Property="BorderBrush" Value="#FF9553EF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style x:Key="BtnEdits" TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                                <Image Source="Edit.png"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                            <Style x:Key="BtnDeletes" TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                                <Image Source="Delete.png"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="BorderThickness" Value="2"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="IsSelected" Value="True" />
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="False">
+                                        <Setter Property="IsSelected" Value="False" />
+                                        <Setter Property="Background" Value="Transparent" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header=" Matric" Binding="{Binding Matric}" Width="100" FontFamily="Calibri Light"/>
+                            <DataGridTextColumn Header=" Name"  Binding="{Binding Name}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" LastName"  Binding="{Binding LastName}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Turn"  Binding="{Binding Turn}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Career"  Binding="{Binding Career}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Semester"  Binding="{Binding Semester}" Width="*" FontFamily="Gadugi"/>
+
+                            <DataGridTemplateColumn Header="Operations" Width="100" x:Name="OptionsStudent">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Style="{StaticResource BtnEdits}" Width="40" Click="BtnEditStudent_Click"/>
+                                            <Button Style="{StaticResource BtnDeletes}" Width="40" Click="BtnDeleteStudent_Click"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="" HorizontalAlignment="Left" Style="{StaticResource LabelRadius}" Height="30" Margin="40,23,0,0" VerticalAlignment="Top" Width="160" Background="White"/>
+                    <Button x:Name="BtnSearchStudent" Content="Search" HorizontalAlignment="Left" Style="{StaticResource BtnRadius}" Margin="200,23,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="BtnSearchStudent_Click"/>
+                    <TextBox x:Name="TxtStudents" HorizontalAlignment="Left" Margin="37,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0"/>
+                    <Button x:Name="BtnAddtudents" Content="   Add Students" HorizontalAlignment="Left" Style="{StaticResource BtnRadiusa}" Margin="598,23,0,0" VerticalAlignment="Top" Height="30" Width="160" FontSize="12" FontFamily="Consolas" BorderBrush="{x:Null}" Click="BtnAddtudents_Click"/>
+                    <Label x:Name="LblMas2" Content="+" HorizontalAlignment="Left" Margin="598,23,0,0" VerticalAlignment="Top" Width="26" Height="30" FontFamily="Cambria Math" FontSize="18"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="  Users" 
+                     Width="110" Height="33"
+                     Background="{x:Null}" 
+                     FontFamily="Gadugi" FontSize="15" 
+                     BorderBrush="Transparent" BorderThickness="0,0,0,3"
+                     HorizontalContentAlignment="Center" Margin="-2,0,2,0" x:Name="TableUsers" >
+                <Grid Width="780" Height="450">
+                    <DataGrid x:Name="UsersTable"
+                      SelectionMode="Extended" Margin="20,73,20,26" 
+                      Background="Transparent" 
+                      BorderBrush="#eff3f6" 
+                      AutoGenerateColumns="false" 
+                      CanUserAddRows="false" 
+                      IsReadOnly="True" 
+                      ColumnWidth="*" 
+                      BorderThickness="1,1,1,1" 
+                      GridLinesVisibility="Horizontal" 
+                      VerticalGridLinesBrush="{x:Null}" 
+                      HorizontalGridLinesBrush="#FFEFF3F6" 
+                      VerticalContentAlignment="Center"
+                      HeadersVisibility="Column"
+                      HorizontalScrollBarVisibility="Disabled">
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#613dd0"/>
+                                <Setter Property="Height" Value="25"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                <Setter Property="Foreground" Value="black"/>
+                                <Setter Property="FontFamily" Value="Bahnschrift Light" />
+                                <Setter Property="FontSize" Value="14" />
+                            </Style>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="#FFF9F9F9" />
+                                <Setter Property="Height" Value="25" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter Property="FontFamily" Value="Bahnschrift" />
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="BorderBrush" Value="#FFF9F9F9"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#FF9553EF" />
+                                        <Setter Property="BorderBrush" Value="#FF9553EF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style x:Key="BtnEdits" TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                                <Image Source="Edit.png"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                            <Style x:Key="BtnDeletes" TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                                <Image Source="Delete.png"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="BorderThickness" Value="2"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="IsSelected" Value="True" />
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="False">
+                                        <Setter Property="IsSelected" Value="False" />
+                                        <Setter Property="Background" Value="Transparent" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header=" Id" Binding="{Binding IdPersonnel}" Width="100" FontFamily="Calibri Light"/>
+                            <DataGridTextColumn Header=" Name"  Binding="{Binding Name}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" UserName"  Binding="{Binding Username}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Password"  Binding="{Binding Password}" Width="*" FontFamily="Gadugi"/>
+                            <DataGridTextColumn Header=" Role"  Binding="{Binding Roles.NameRole}" Width="*" FontFamily="Gadugi"/>
+
+                            <DataGridTemplateColumn Header="Operations" Width="100">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Style="{StaticResource BtnEdits}" Width="40" Click="BtnEditPersonnel_Click"/>
+                                            <Button Style="{StaticResource BtnDeletes}" Width="40" Click="BtnDeletePersonnel_Click"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="" HorizontalAlignment="Left" Style="{StaticResource LabelRadius}" Height="30" Margin="40,23,0,0" VerticalAlignment="Top" Width="160" Background="White"/>
+                    <Button x:Name="BrnSearchUsers" Content="Search" HorizontalAlignment="Left" Style="{StaticResource BtnRadius}" Margin="200,23,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="BrnSearchUsers_Click"/>
+                    <TextBox x:Name="TxtUser" HorizontalAlignment="Left" Margin="37,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0"/>
+                    <Button x:Name="BtnAddUsers" Content="   Add Users" HorizontalAlignment="Left" Style="{StaticResource BtnRadiusa}" Margin="598,23,0,0" VerticalAlignment="Top" Height="30" Width="160" FontSize="12" FontFamily="Consolas" BorderBrush="{x:Null}" Click="BtnAddUsers_Click"/>
+                    <Label Content="+" HorizontalAlignment="Left" Margin="598,23,0,0" VerticalAlignment="Top" Width="26" Height="30" FontFamily="Cambria Math" FontSize="18"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

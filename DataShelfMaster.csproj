@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Logo.png" />
+    <None Remove="Padlock.png" />
+    <None Remove="User.png" />
+    <None Remove="ViewWindows\Delete.png" />
+    <None Remove="ViewWindows\Edit.png" />
+    <None Remove="ViewWindows\Headuser.png" />
+    <None Remove="ViewWindows\Icon-Logo.png" />
+    <None Remove="ViewWindows\Logo.png" />
+    <None Remove="ViewWindows\Padlock.png" />
+    <None Remove="ViewWindows\User.png" />
+    <None Remove="ViewWindows\UserLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Icon\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Logo.png" />
+    <Resource Include="Padlock.png" />
+    <Resource Include="User.png" />
+    <Resource Include="ViewWindows\Delete.png" />
+    <Resource Include="ViewWindows\Edit.png" />
+    <Resource Include="ViewWindows\Headuser.png" />
+    <Resource Include="ViewWindows\Icon-Logo.png" />
+    <Resource Include="ViewWindows\Logo.png" />
+    <Resource Include="ViewWindows\Padlock.png" />
+    <Resource Include="ViewWindows\User.png" />
+    <Resource Include="ViewWindows\UserLogo.png" />
+  </ItemGroup>
+
+</Project>
