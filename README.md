@@ -58,7 +58,7 @@ Para que la conexión funcione correctamente, es esencial que ajustes los parám
 
 ## Accesos o Credenciales
 - **Usuario de prueba**: prueba@devdarksonic.com
-- **Contraseña de prueba**: devdarksonic123
+- **Contraseña de prueba**: Devdarksonic123
 
 ## Guía de Uso del Proyecto
 1. Ejecuta la aplicación desde **Visual Studio** o tu entorno de desarrollo preferido.
